@@ -1,72 +1,68 @@
 'use client';
 import Link from 'next/link';
+import { MouseEvent, useState } from 'react';
 import * as math from 'mathjs';
-import { MouseEvent, useEffect, useState } from 'react';
 import { numberButtons, symbolButtons } from './buttons';
 
 type Event = MouseEvent<HTMLInputElement>;
 
+const errorMessage = 'You blocked it.. Click C!';
+
 export default function Page() {
-	const [showValue, setShowValue] = useState('');
+	const [value, setValue] = useState('');
 	const [blockNumberButtons, setBlockNumberButtons] = useState(false);
 	const [blockSymbolButtons, setBlockSymbolButtons] = useState(true);
 
 	const calculate = async () => {
 		try {
-			const result = (await math.evaluate(showValue)) || '';
+			const result = (await math.evaluate(value)) || '';
 			setBlockNumberButtons(true);
-			setShowValue(result.toString());
+			setValue(result.toString());
 		} catch (err) {
 			setBlockNumberButtons(true);
 			setBlockSymbolButtons(true);
-			setShowValue('You blocked it.. Click C!');
+			setValue(errorMessage);
 		}
 	};
 
 	const handleSqrtAndPow = (buttonValue: string) => {
-		const num = Number(showValue);
+		let result: number;
+		const num = Number(value);
 
 		if (num) {
-			if (buttonValue === '√') {
-				const result = Math.sqrt(num);
-				setShowValue(result.toString());
-			} else if (buttonValue === 'x²') {
-				const result = Math.pow(num, 2);
-				setShowValue(result.toString());
-			}
+			if (buttonValue === '√') result = Math.sqrt(num);
+			if (buttonValue === 'x²') result = Math.pow(num, 2);
+			setValue(result!.toString());
 		} else {
-			setBlockSymbolButtons(true);
 			setBlockNumberButtons(true);
-			setShowValue('Error.. Click C!');
+			setBlockSymbolButtons(true);
+			setValue(errorMessage);
 		}
 	};
 
-	const handleValue = async (e: Event) => {
+	const handleValue = (e: Event) => {
 		const buttonValue = e.currentTarget.value;
 
 		if (buttonValue === '=') {
-			await calculate();
+			calculate();
 		} else if (buttonValue === '√' || buttonValue === 'x²') {
 			handleSqrtAndPow(buttonValue);
 		} else {
-			setShowValue(showValue.concat(buttonValue));
+			setValue(value.concat(buttonValue));
 		}
 	};
 
 	const resetValue = () => {
-		setShowValue('');
+		setValue('');
 		setBlockNumberButtons(false);
 		setBlockSymbolButtons(true);
 	};
-
-	console.log(blockNumberButtons);
-	console.log(blockSymbolButtons);
 
 	return (
 		<div>
 			<h1 className='p-4 text-2xl'>Calculator</h1>
 			<div>
-				<input type='text' className='p-2 m-2 pointer-events-none text-black' value={showValue} readOnly />
+				<input type='text' className='p-2 m-2 pointer-events-none text-black' value={value} readOnly />
 				<div>
 					{numberButtons.map(data => (
 						<input
