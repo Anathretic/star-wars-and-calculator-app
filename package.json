@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"cypress:open": "cypress open",
-		"test": "cypress run"
+		"cypress:test": "cypress run --component && cypress run"
 	},
 	"dependencies": {
 		"mathjs": "^12.4.0",

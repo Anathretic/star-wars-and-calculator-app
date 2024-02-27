@@ -62,14 +62,15 @@ export default function Page() {
 		<div>
 			<h1 className='p-4 text-2xl'>Calculator</h1>
 			<div>
-				<input type='text' className='p-2 m-2 pointer-events-none text-black' value={value} readOnly />
+				<input type='text' className='screen p-2 m-2 pointer-events-none text-black' value={value} readOnly />
 				<div>
 					{numberButtons.map(data => (
 						<input
 							key={data.value}
 							type='button'
 							value={data.value}
-							className={`p-2 m-2 border ${blockNumberButtons && 'pointer-events-none bg-gray-700'}`}
+							disabled={blockNumberButtons ? true : false}
+							className={`number-btn p-2 m-2 border ${blockNumberButtons && 'pointer-events-none bg-gray-700'}`}
 							onClick={e => {
 								handleValue(e);
 								setBlockSymbolButtons(false);
@@ -81,14 +82,15 @@ export default function Page() {
 							key={data.value}
 							type='button'
 							value={data.value}
-							className={`p-2 m-2 border ${blockSymbolButtons && 'pointer-events-none bg-gray-700'}`}
+							disabled={blockSymbolButtons ? true : false}
+							className={`symbol-btn p-2 m-2 border ${blockSymbolButtons && 'pointer-events-none bg-gray-700'}`}
 							onClick={e => {
 								setBlockNumberButtons(false);
 								handleValue(e);
 							}}
 						/>
 					))}
-					<input type='button' value='C' className={'p-2 m-2 border'} onClick={resetValue} />
+					<input type='button' value='C' className={'clear p-2 m-2 border'} onClick={resetValue} />
 				</div>
 			</div>
 			<Link className='p-2 m-2' href='/'>
