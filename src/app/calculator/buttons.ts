@@ -33,27 +33,27 @@ export const numberButtons = [
 
 export const symbolButtons = [
 	{
+		value: 'x²',
+	},
+	{
+		value: '√',
+	},
+	{
 		value: '+',
 	},
 	{
 		value: '-',
 	},
 	{
-		value: '/',
-	},
-	{
 		value: '*',
 	},
 	{
-		value: '.',
+		value: '/',
 	},
 	{
 		value: '=',
 	},
 	{
-		value: '√',
-	},
-	{
-		value: 'x²',
+		value: '.',
 	},
 ];
