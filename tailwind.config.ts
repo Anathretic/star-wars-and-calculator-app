@@ -9,11 +9,12 @@ const config: Config = {
 	theme: {
 		extend: {
 			backgroundImage: {
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'calculator': "url('./images/calculator-bg.jpg')",
+				'star-wars': "url('./images/star-wars-bg.jpg')"
 			},
 			boxShadow: {
 				'3xl': '0px 5px 24px 0px rgba(0, 0, 0, 1)',
+				'4xl': '0px 2px 25px 10px rgba(0, 0, 0, 1)'
 			},
 		},
 	},

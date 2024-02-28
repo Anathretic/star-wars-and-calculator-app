@@ -1,12 +1,12 @@
-describe('Main Page Navigation - Weather', () => {
-	it('should navigate to the weather page', () => {
+describe('Main Page Navigation - Star Wars', () => {
+	it('should navigate to the star wars app', () => {
 		cy.visit('http://localhost:3000/');
 
-		cy.get('a[href*="weather"]').click();
+		cy.get('a[href*="star-wars"]').click();
 
-		cy.url().should('include', 'weather');
+		cy.url().should('include', 'star-wars');
 
-		cy.get('h1').contains('Weather');
+		cy.get('h1').contains('Star Wars');
 	});
 });
 
@@ -30,6 +30,7 @@ describe('Calculator Home Button', () => {
 
 		cy.url().should('include', '');
 
-		cy.get('h1').contains('Home');
+		cy.get('a[href="/calculator"]').should('be.visible');
+		cy.get('a[href="/star-wars"]').should('be.visible');
 	});
 });
