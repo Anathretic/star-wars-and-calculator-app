@@ -59,8 +59,8 @@ export default function Page() {
 	};
 
 	return (
-		<div className='calculator min-h-screen flex justify-center items-center flex-col lg:text-2xl'>
-			<div className='w-full max-w-[490px] py-2 my-2 bg-gray-800 rounded-2xl shadow-3xl'>
+		<div className='bg-calculator min-h-screen flex justify-center items-center flex-col lg:text-2xl'>
+			<div className='w-full max-w-[490px] 2xl:max-w-[550px] py-2 my-2 bg-gray-700 rounded-2xl shadow-3xl'>
 				<h1 className='py-8 text-3xl lg:text-4xl flex justify-center'>Calculator</h1>
 				<div className='w-full max-w-md mx-auto p-2'>
 					<input
@@ -116,7 +116,7 @@ export default function Page() {
 					</div>
 				</div>
 				<Link
-					className='clear p-2 mx-auto my-12 max-w-[250px] flex justify-center w-1/2 border border-gray-300 rounded-md hover:bg-gray-900 duration-300 cursor-pointer'
+					className='clear p-2 mx-auto my-12 max-w-[250px] 2xl:max-w-[320px] 2xl:py-3 flex justify-center w-1/2 border border-gray-300 rounded-md hover:bg-gray-800 duration-300 cursor-pointer'
 					href='/'>
 					Home
 				</Link>

@@ -16,10 +16,6 @@ body {
 	color: rgb(var(--foreground-rgb));
 }
 
-.calculator {
-	background-image: url('./images/calculator-bg.jpg');
-}
-
 .special-direction {
 	direction: rtl;
 }
