@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import useSWR from 'swr';
 import { People, Planets, Root } from '../models/starwars.models';
+import { HomeworldButton } from '../littleComponents/HomeworldButton';
 
 type Button = 'planets' | 'people';
 
@@ -68,7 +69,7 @@ export default function Page() {
 								<span>{person.eye_color}</span>
 								<span>{person.birth_year}</span>
 								<span>{person.gender}</span>
-								<span>{person.homeworld}</span>
+								<HomeworldButton link={person.homeworld} />
 							</div>
 						))}
 					<div>

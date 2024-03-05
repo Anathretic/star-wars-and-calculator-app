@@ -1,5 +1,5 @@
 import Page from '../../src/app/page';
-import Calculator from '../../src/components/calculator/page';
+import Calculator from '../../src/app/calculator/page';
 
 describe('<Page />', () => {
 	it('should render and display expected content', () => {
