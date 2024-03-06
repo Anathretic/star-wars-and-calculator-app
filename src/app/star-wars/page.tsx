@@ -2,8 +2,11 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import useSWR from 'swr';
+import { ThreeCircles } from 'react-loader-spinner';
+import { TiDelete } from 'react-icons/ti';
 import { People, Planets, Root } from '../models/starwars.models';
 import { HomeworldButton } from '../littleComponents/HomeworldButton';
+import { scrollToTop } from '../utils/scrollToTop';
 
 type Button = 'planets' | 'people';
 
@@ -20,8 +23,19 @@ export default function Page() {
 	return (
 		<div className='flex items-center justify-center flex-col min-h-screen bg-star-wars bg-cover bg-fixed'>
 			<h1 className='p-4 my-12 text-4xl lg:text-6xl bg-orange-950 shadow-3xl rounded-xl'>Star Wars</h1>
-			{error && <div className='min-h-screen'>Failed to load!</div>}
-			{isLoading && <div className='min-h-screen'>Loading...</div>}
+			{error && (
+				<div>
+					<div className='flex justify-center items-center flex-col p-4 bg-orange-600 rounded-xl shadow-3xl text-center mx-2 my-12'>
+						<TiDelete size='5em' />
+						<p className='my-8 text-lg'>Server is down! Try again later..</p>
+					</div>
+				</div>
+			)}
+			{isLoading && (
+				<div className='my-36 min-h-screen'>
+					<ThreeCircles color='#431407' />
+				</div>
+			)}
 			{data && (
 				<>
 					<div className='p-2 text-lg 2xl:text-xl flex max-rsm:flex-col'>
@@ -166,6 +180,7 @@ export default function Page() {
 									if (data.next !== null) {
 										setPageNumber(pageNumber + 1);
 									}
+									scrollToTop();
 								}}>
 								Next
 							</button>

@@ -24,8 +24,10 @@ export const HomeworldButton: React.FC<Button> = ({ link }) => {
 			type='button'
 			onClick={() => getPlanet(link)}
 			value={homeworldButtonValue}
-			className={`px-6 py-2 m-4 hover:bg-orange-800 duration-300 shadow-xl cursor-pointer rounded-xl w-[156px] ${
-				homeworldButtonValue !== 'Homeworld' ? 'pointer-events-none bg-orange-950 shadow-none' : 'bg-orange-900 shadow-xl'
+			className={`px-6 py-2 m-4 hover:bg-orange-800 duration-300 cursor-pointer rounded-xl w-[156px] ${
+				homeworldButtonValue !== 'Homeworld'
+					? 'pointer-events-none bg-orange-950 shadow-none'
+					: 'bg-orange-900 shadow-xl'
 			}`}
 		/>
 	);
