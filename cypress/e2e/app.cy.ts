@@ -34,3 +34,16 @@ describe('Calculator Home Button', () => {
 		cy.get('a[href="/star-wars"]').should('be.visible');
 	});
 });
+
+describe('Star Wars Home Button', () => {
+	it('should navigate to the homepage', () => {
+		cy.visit('http://localhost:3000/star-wars');
+
+		cy.get('a[href*="/"]').click();
+
+		cy.url().should('include', '');
+
+		cy.get('a[href="/calculator"]').should('be.visible');
+		cy.get('a[href="/star-wars"]').should('be.visible');
+	});
+});

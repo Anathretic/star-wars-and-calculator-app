@@ -1,10 +1,3 @@
-export interface Root {
-	count: number;
-	next: string;
-	previous: any;
-	results: any;
-}
-
 export interface Planets {
 	name: string;
 	rotation_period: string;
