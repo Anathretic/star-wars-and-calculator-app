@@ -1,5 +1,6 @@
 import Page from '../../src/app/page';
 import Calculator from '../../src/app/calculator/page';
+import StarWars from '../../src/app/star-wars/page';
 
 describe('<Page />', () => {
 	it('should render and display expected content', () => {
@@ -56,5 +57,49 @@ describe('<Calculator />', () => {
 	it('should check home button visiblity', () => {
 		cy.mount(<Calculator />);
 		cy.get('a[href="/"]').should('be.visible');
+	});
+});
+
+describe('<StarWars />', () => {
+	it('should people button be enabled and planets button be disabled', () => {
+		cy.mount(<StarWars />);
+		cy.get('button.people-button').should('be.enabled');
+		cy.get('button.planets-button').should('be.disabled');
+	});
+
+	it('after on click, people button should be disabled and planets button should be enabled', () => {
+		cy.mount(<StarWars />);
+		cy.get('button.people-button').should('be.enabled').click();
+		cy.get('button.people-button').should('be.disabled');
+		cy.get('button.planets-button').should('be.enabled');
+	});
+
+	it('after on click, people button should be disabled and planets button should be enabled', () => {
+		cy.mount(<StarWars />);
+		cy.get('button.people-button').should('be.enabled').click();
+		cy.get('button.people-button').should('be.disabled');
+		cy.get('button.planets-button').should('be.enabled');
+	});
+
+	it('first displayed planet should be tatooine', () => {
+		cy.mount(<StarWars />);
+		cy.get('h3').eq(0).should('have.text', 'Tatooine');
+		cy.get('button.people-button').should('be.enabled');
+		cy.get('button.planets-button').should('be.disabled');
+	});
+
+	it('first displayed character should be luke skywalker', () => {
+		cy.mount(<StarWars />);
+		cy.get('button.people-button').should('be.enabled').click();
+		cy.get('h3').eq(0).should('have.text', 'Luke Skywalker');
+		cy.get('button.people-button').should('be.disabled');
+		cy.get('button.planets-button').should('be.enabled');
+	});
+
+	it('first homeworld should be luke tatooine', () => {
+		cy.mount(<StarWars />);
+		cy.get('button.people-button').should('be.enabled').click();
+		cy.get('input').eq(0).click();
+		cy.get('input').eq(0).should('have.value', 'Tatooine');
 	});
 });

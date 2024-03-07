@@ -16,6 +16,9 @@ const config: Config = {
 				'3xl': '0px 5px 24px 0px rgba(0, 0, 0, 1)',
 				'4xl': '0px 2px 25px 10px rgba(0, 0, 0, 1)'
 			},
+			screens : {
+				'rsm': '305px'
+			},
 		},
 	},
 	plugins: [],
