@@ -72,7 +72,7 @@ export default function Page() {
 							data.map((character: People) => <CharacterContainer key={character.name} data={character} />)}
 					</div>
 					<Link
-						className='p-2 my-8 text-xl bg-orange-900 hover:bg-orange-800 duration-300 w-[156px] text-center rounded-lg shadow-3xl'
+						className='p-2 my-8 text-xl bg-orange-900 hover:bg-orange-800 duration-300 w-[156px] 2xl:w-[256px] 2xl:p-3 text-center rounded-lg shadow-3xl'
 						href='/'>
 						Home
 					</Link>
