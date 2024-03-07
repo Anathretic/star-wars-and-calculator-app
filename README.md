@@ -6,6 +6,6 @@ A simple app demonstrating the use of Next.js with Cypress and the SWR React Hoo
 
 ## Links & Tools
 
-Used: CSS, Next.js (React framework), SWR, TypeScript, Cypress, Tailwind
+**Used:** CSS, Next.js (React framework), SWR, TypeScript, Cypress, Tailwind
 
-URL: [Star Wars & Calculator](https://star-wars-and-calculator-app.vercel.app/star-wars)
+**URL:** [Star Wars & Calculator](https://star-wars-and-calculator-app.vercel.app/star-wars)
